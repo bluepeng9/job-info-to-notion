@@ -1,6 +1,7 @@
 name: run python code
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */24 * * *' # 24마다 시간 실행
 
