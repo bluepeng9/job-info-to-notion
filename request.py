@@ -10,7 +10,7 @@ from dtos import *
 # declare today datetime before month
 today = datetime.datetime.now()
 beforeMonth = today.date() - datetime.timedelta(days=30)
-afterWeek = today.date() + datetime.timedelta(days=7)
+afterWeek = today.date() + datetime.timedelta(days=14)
 
 data = {"start_time": today, "end_time": afterWeek}
 res = requests.post("https://jasoseol.com/employment/calendar_list.json", data=data)
