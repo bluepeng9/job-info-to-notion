@@ -53,7 +53,17 @@ for job in jobs:
         parent={"database_id": notion_database_id},
         properties={
             "채용명": {"title": [{"text": {"content": job.title}}]},
-            "기업": {"rich_text": [{"text": {"content": job.name}}]},
+            "기업": {"rich_text": [
+                {
+                    "text": {
+                        "content": job.name,
+                        "link": {
+                            "url": f'https://jasoseol.com/recruit/{job.id}'
+                        }
+                    }
+                }
+            ]
+            },
             "서류 일정": {"date": {"start": job.start_time, "end": job.end_time}},
             "마감일": {"date": {"start": job.end_time}},
             "자소설 닷컴 링크": {"url": f'https://jasoseol.com/recruit/{job.id}'},
