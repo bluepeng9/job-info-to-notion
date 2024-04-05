@@ -15,19 +15,17 @@
     ![notionAPI](./docs/notion%20api.PNG)
 + Notion_DB_ID
     - 보기링크를 복사   
-    - https://www.notion.so/['DB_ID']=a8d039200f0e4436a8e73a6da74520c9&pvs=4
+    - https://www.notion.so/`[DB_ID]`?
     - DB_ID
 
 
 
-## GitHub Necessaries
+## ⚠ GitHub Necessaries
 + Settings    
     ![Githubsettings](./docs/github%20settings.PNG)
-    1. Secrets and Variables  
-    2. actions  
-    3. Repository Secrets  
+    - Secrets and Variables >> actions >> Repository Secrets  
     - 위에서 발급받은 db_ID 와 API 링크를 위 그림처럼 추가
-    - ❗ 이름 중요, New repository secret 을 눌러서 추가
+    - ❗이름 중요, New repository secret 을 눌러서 추가
 
 + GitHub Action
     - Run Python Code
