@@ -1,3 +1,6 @@
+import logging
+
+
 class CompanyGroup:
     def __init__(self, id, name, created_at, updated_at, business_size, business_type, image_file_name,
                  image_content_type, image_file_size, image_updated_at, current_shard, alternate_names):
@@ -21,16 +24,19 @@ class DutyGroup:
 
 
 class Employment:
-    def __init__(self, duty_groups, id, division, duty_category):
+    def __init__(self, duty_groups, id, division, duty_category, apply, **kwargs):
+        logging.warning(f'기대하지 않은 Employment 변수들 kwargs = {kwargs}')
         self.duty_groups = [DutyGroup(**group) for group in duty_groups]
         self.id = id
         self.division = division
         self.duty_category = duty_category
+        self.apply = apply
 
 
 class Job:
     def __init__(self, id, name, title, company_group, start_time, end_time, image_file_name, recruit_type,
-                 business_size, business_type, employments, in24hours, gg=None, advertise_id=None):
+                 business_size, business_type, employments, in24hours, gg=None, advertise_id=None, is_receive_applicant = False, **kwargs):
+        logging.warning(f'기대하지 않은 Job 변수들 kwargs = {kwargs}')
         self.id = id
         self.name = name
         self.title = title
@@ -44,6 +50,9 @@ class Job:
         self.employments = [Employment(**employment) for employment in employments]
         self.in24hours = in24hours
         self.gg = gg
+
+        # 자소설 닷컴에서 바로 지원할 수 있는 지 보는 것으로 추측
+        self.is_receive_applicant = is_receive_applicant
 
     def __str__(self):
         return f'Job({self.id}, {self.name}, {self.title}, {self.company_group}, {self.start_time}, {self.end_time}, {self.image_file_name}, {self.recruit_type}, {self.business_size}, {self.business_type}, {self.employments}, {self.in24hours}, {self.gg})'
